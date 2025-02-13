@@ -122,6 +122,7 @@ void AAirPlane01::Look(const FInputActionValue& value)
 	AddActorLocalRotation(CurrentRotation);
 
 	/*SpringArmComp->AddLocalRotation(CurrentRotation);*/
+
 	//GetWorld()->GetFirstPlayerController()->AddYawInput(CurrentRotation.Yaw);
 	//GetWorld()->GetFirstPlayerController()->AddPitchInput(CurrentRotation.Pitch);	
 }
