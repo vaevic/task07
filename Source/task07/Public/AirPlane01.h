@@ -36,11 +36,7 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Camera")
 	USpringArmComponent* SpringArmComp;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Camera");
-	UCameraComponent* CameraComp;
-
-	FVector CurrentLocation;
-	FRotator CurrentRotation;
-	float RotateValue;
+	UCameraComponent* CameraComp;	
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Plane|Movements")
 	float Movespeed;
@@ -49,8 +45,13 @@ protected:
 private:
 	UFUNCTION()
 	void Move(const FInputActionValue& value);
-	/*UFUNCTION()
-	void MoveStop(const FInputActionValue& value);*/
+	UFUNCTION()
+	void MoveStop(const FInputActionValue& value);
 	UFUNCTION()
 	void Look(const FInputActionValue& value);
+	
+	FVector CurrentLocation;
+	FRotator CurrentRotation;
+	float RotateValue;
+	float MaxRotateValue; //최대 회전값
 };

@@ -43,7 +43,9 @@ AAirPlane01::AAirPlane01()
 	CameraComp->bUsePawnControlRotation = false;
 
 	Movespeed = 15.0f;
-	RotateValue = 10.0f;
+	RotateValue = 1.0f;
+	MaxRotateValue = 10.0f;
+
 }
 
 
@@ -59,6 +61,7 @@ void AAirPlane01::SetupPlayerInputComponent(UInputComponent* PlayerInputComponen
 			if (PlayerController->MoveAction)
 			{
 				EnhancedInput->BindAction(PlayerController->MoveAction, ETriggerEvent::Triggered, this, &AAirPlane01::Move);
+				EnhancedInput->BindAction(PlayerController->MoveAction, ETriggerEvent::Completed, this, &AAirPlane01::MoveStop);
 			}
 			if (PlayerController->LookAction)
 			{
@@ -80,9 +83,14 @@ void AAirPlane01::Move(const FInputActionValue& value)
 		CurrentLocation.X = MoveInput.X*Movespeed;
 		AddActorLocalOffset(CurrentLocation);
 
-		/*CurrentRotation = FRotator::ZeroRotator;
-		CurrentRotation.Roll += RotateValue;
-		SkeletalMeshComp->SetRelativeRotation(CurrentRotation);*/
+		//if (CurrentRotation.Pitch <= MaxRotateValue)
+		//{
+		//	CurrentRotation = FRotator::ZeroRotator;
+		//	CurrentRotation.Pitch += RotateValue;
+		//	//SpringArmComp->SetRelativeRotation(CurrentRotation);
+		//	SpringArmComp->AddLocalRotation(CurrentRotation);
+		//}
+		
 	}
 
 	if (!FMath::IsNearlyZero(MoveInput.Y)) //аб©Л
@@ -91,16 +99,18 @@ void AAirPlane01::Move(const FInputActionValue& value)
 		CurrentLocation.Y = MoveInput.Y*Movespeed;
 		AddActorLocalOffset(CurrentLocation);
 
-		/*CurrentRotation = FRotator::ZeroRotator;
-		CurrentRotation.Pitch -= RotateValue;
-		SkeletalMeshComp->SetRelativeRotation(CurrentRotation);*/
+		//CurrentRotation = FRotator::ZeroRotator;
+		//CurrentRotation.Roll -= RotateValue;
+		//SpringArmComp->SetRelativeRotation(CurrentRotation);
+		//SpringArmComp->AddLocalRotation(CurrentRotation);
 	}	
 }
 
-//void AAirPlane01::MoveStop(const FInputActionValue& value)
-//{
-//
-//}
+void AAirPlane01::MoveStop(const FInputActionValue& value)
+{
+	/*FRotator RetrunRotation = */
+	//SpringArmComp->AddLocalRotation(CurrentRotation);
+}
 
 void AAirPlane01::Look(const FInputActionValue& value)
 {
@@ -111,8 +121,9 @@ void AAirPlane01::Look(const FInputActionValue& value)
 	CurrentRotation.Pitch = -LookInput.Y;
 	AddActorLocalRotation(CurrentRotation);
 
-	GetWorld()->GetFirstPlayerController()->AddYawInput(CurrentRotation.Yaw);
-	GetWorld()->GetFirstPlayerController()->AddPitchInput(CurrentRotation.Pitch);	
+	/*SpringArmComp->AddLocalRotation(CurrentRotation);*/
+	//GetWorld()->GetFirstPlayerController()->AddYawInput(CurrentRotation.Yaw);
+	//GetWorld()->GetFirstPlayerController()->AddPitchInput(CurrentRotation.Pitch);	
 }
 
 void AAirPlane01::BeginPlay()
