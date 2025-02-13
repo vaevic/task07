@@ -19,8 +19,8 @@ AAirPlane01::AAirPlane01()
 	SkeletalMeshComp = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("SkeletalMesh"));
 	SkeletalMeshComp->SetupAttachment(RootComponent);
 	SkeletalMeshComp->SetSimulatePhysics(false);
-	SkeletalMeshComp->SetRelativeLocation(FVector(124.0f, 0.0f, 8.0f));
-	SkeletalMeshComp->SetRelativeRotation(FRotator(0.0f, 90.0f, 0.0f));
+	SkeletalMeshComp->SetRelativeLocation(FVector(124.0f, 0.0f, -12.0f));
+	SkeletalMeshComp->SetRelativeRotation(FRotator(-180.0f, 90.0f, 0.0f));
 
 	static ConstructorHelpers::FObjectFinder<USkeletalMesh> MeshAsset(TEXT("/Game/Fab/WW_Plane/ww_plane.ww_plane"));
 	if (MeshAsset.Succeeded())
