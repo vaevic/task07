@@ -8,7 +8,7 @@
    * look함수에서 액터가 회전합니다.
    * 즉 카메라와 매쉬가 같은 입력(마우스)으로 같은 회전양으로 이동하고 있습니다.
 
-상세 구현 내용 참고용 TIL
-25.02.11 https://jj1-bex.tistory.com/61
-25.02.12 https://jj1-bex.tistory.com/62
-25.02.13 https://jj1-bex.tistory.com/63
+상세 구현 내용 참고용 TIL\n
+25.02.11 https://jj1-bex.tistory.com/61 \n
+25.02.12 https://jj1-bex.tistory.com/62 \n
+25.02.13 https://jj1-bex.tistory.com/63 \n
