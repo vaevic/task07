@@ -97,10 +97,10 @@ void AAirPlane01::Move(const FInputActionValue& value)
 	}	
 }
 
-void AAirPlane01::MoveStop(const FInputActionValue& value)
-{
-
-}
+//void AAirPlane01::MoveStop(const FInputActionValue& value)
+//{
+//
+//}
 
 void AAirPlane01::Look(const FInputActionValue& value)
 {

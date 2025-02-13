@@ -49,8 +49,8 @@ protected:
 private:
 	UFUNCTION()
 	void Move(const FInputActionValue& value);
-	UFUNCTION()
-	void MoveStop(const FInputActionValue& value);
+	/*UFUNCTION()
+	void MoveStop(const FInputActionValue& value);*/
 	UFUNCTION()
 	void Look(const FInputActionValue& value);
 };
